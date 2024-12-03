@@ -2,11 +2,11 @@ package com.example.project
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
-import com.github.mikephil.charting.data.BarData
-import com.github.mikephil.charting.data.BarDataSet
-import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.utils.ColorTemplate
 
 class LaporanAbsensi : AppCompatActivity() {
@@ -15,22 +15,22 @@ class LaporanAbsensi : AppCompatActivity() {
         setContentView(R.layout.activity_absensi)
 
         // Daily Report Bar Chart
-        val dailyChart = findViewById<BarChart>(R.id.chart_daily)
+        val dailyChart = findViewById<LineChart>(R.id.chart_daily)
         setupBarChart(dailyChart, getDailyData(), "Laporan Harian")
 
         // Monthly Report Bar Chart
-        val monthlyChart = findViewById<BarChart>(R.id.chart_monthly)
+        val monthlyChart = findViewById<LineChart>(R.id.chart_monthly)
         setupBarChart(monthlyChart, getMonthlyData(), "Laporan Bulanan")
 
         // Yearly Report Bar Chart
-        val yearlyChart = findViewById<BarChart>(R.id.chart_yearly)
+        val yearlyChart = findViewById<LineChart>(R.id.chart_yearly)
         setupBarChart(yearlyChart, getYearlyData(), "Laporan Tahunan")
     }
 
-    private fun setupBarChart(chart: BarChart, dataEntries: List<BarEntry>, label: String) {
-        val dataSet = BarDataSet(dataEntries, label)
+    private fun setupBarChart(chart: LineChart, dataEntries: List<Entry>, label: String) {
+        val dataSet = LineDataSet(dataEntries, label)
         dataSet.colors = ColorTemplate.MATERIAL_COLORS.toList()
-        val data = BarData(dataSet)
+        val data = LineData(dataSet)
 
         chart.data = data
         chart.description.isEnabled = false
@@ -39,33 +39,31 @@ class LaporanAbsensi : AppCompatActivity() {
         chart.invalidate() // refresh
     }
 
-    private fun getDailyData(): List<BarEntry> {
+    private fun getDailyData(): List<Entry> {
         return listOf(
-            BarEntry(0f, 4f), // Senin
-            BarEntry(1f, 5f), // Selasa
-            BarEntry(2f, 6f), // Rabu
-            BarEntry(3f, 7f), // Kamis
-            BarEntry(4f, 8f), // Jumat
-            BarEntry(5f, 3f), // Sabtu
-            BarEntry(6f, 0f)  // Minggu
+            Entry(0f, 4f), // Senin
+            Entry(1f, 5f), // Selasa
+            Entry(2f, 6f), // Rabu
+            Entry(3f, 7f), // Kamis
+            Entry(4f, 8f), // Jumat
+            Entry(5f, 3f), // Sabtu
+            Entry(6f, 0f)  // Minggu
         )
     }
 
-    private fun getMonthlyData(): List<BarEntry> {
+    private fun getMonthlyData(): List<Entry> {
         return listOf(
-            BarEntry(0f, 20f), // Januari
-            BarEntry(1f, 18f), // Februari
-            BarEntry(2f, 22f), // Maret
-            // Add more months...
+            Entry(0f, 20f), // Januari
+            Entry(1f, 18f), // Februari
+            Entry(2f, 22f), // Maret
         )
     }
 
-    private fun getYearlyData(): List<BarEntry> {
+    private fun getYearlyData(): List<Entry> {
         return listOf(
-            BarEntry(0f, 200f), // 2023
-            BarEntry(1f, 210f), // 2024
-            BarEntry(2f, 190f)  // 2025
-            // Add more years...
+            Entry(0f, 200f), // 2023
+            Entry(1f, 210f), // 2024
+            Entry(2f, 190f)  // 2025
         )
     }
 }
