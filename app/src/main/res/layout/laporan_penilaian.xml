@@ -9,7 +9,7 @@
     android:gravity="center"
     tools:context=".LaporanPenilaian">
 
-    <!-- Toolbar -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -36,7 +36,7 @@
             android:textStyle="bold"/>
     </LinearLayout>
 
-    <!-- Content -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
