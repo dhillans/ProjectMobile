@@ -9,7 +9,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Bagian Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -17,7 +16,6 @@
             android:orientation="horizontal"
             android:padding="16dp">
 
-            <!-- Informasi Dokter -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,7 +46,6 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
-            <!-- Foto Dokter -->
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
@@ -58,13 +55,12 @@
 
         </LinearLayout>
 
-        <!-- Grafik Kinerja Individu -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
-            android:text="Kinerja Individu"
+            android:text="Kinerja Staff"
             android:textColor="#333333"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -75,7 +71,6 @@
             android:layout_height="200dp"
             android:layout_margin="16dp" />
 
-        <!-- Grafik Kinerja Divisi -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
