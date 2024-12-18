@@ -14,15 +14,12 @@ class LaporanAbsensi : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_absensi)
 
-        // Daily Report Bar Chart
         val dailyChart = findViewById<LineChart>(R.id.chart_daily)
         setupBarChart(dailyChart, getDailyData(), "Laporan Harian")
 
-        // Monthly Report Bar Chart
         val monthlyChart = findViewById<LineChart>(R.id.chart_monthly)
         setupBarChart(monthlyChart, getMonthlyData(), "Laporan Bulanan")
 
-        // Yearly Report Bar Chart
         val yearlyChart = findViewById<LineChart>(R.id.chart_yearly)
         setupBarChart(yearlyChart, getYearlyData(), "Laporan Tahunan")
     }

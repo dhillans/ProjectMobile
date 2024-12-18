@@ -1,6 +1,8 @@
 package com.example.project
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -23,4 +25,12 @@ class EvaluationActivity : AppCompatActivity(){
         evaluasiTextView.text = evaluasi
         saranTextView.text = saran
     }
+    fun panggil(view: View?){
+        val intent = Intent(applicationContext,Menu::class.java)
+        startActivity(intent)
+    }
+//    fun panggil(view: View?){
+//        val intent = Intent(applicationContext,Menu::class.java)
+//        startActivity(intent)
+//    }
 }

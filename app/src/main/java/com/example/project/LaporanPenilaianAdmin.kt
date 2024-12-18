@@ -5,11 +5,11 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-class LaporanPenilaian : AppCompatActivity() {
+class LaporanPenilaianAdmin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.laporan_penilaian)
+        setContentView(R.layout.penilaian_admin)
 
         val btnInputPen: Button = findViewById(R.id.btnInputPen)
 

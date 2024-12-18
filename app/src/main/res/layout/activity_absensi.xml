@@ -57,7 +57,7 @@
             android:layout_marginTop="16dp"
             android:textStyle="bold" />
 
-        <com.github.mikephil.charting.charts.BarChart
+        <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chart_daily"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
@@ -71,7 +71,7 @@
             android:layout_marginTop="16dp"
             android:textStyle="bold" />
 
-        <com.github.mikephil.charting.charts.BarChart
+        <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chart_monthly"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
@@ -85,7 +85,7 @@
             android:layout_marginTop="16dp"
             android:textStyle="bold" />
 
-        <com.github.mikephil.charting.charts.BarChart
+        <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chart_yearly"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
