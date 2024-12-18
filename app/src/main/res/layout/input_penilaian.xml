@@ -37,13 +37,15 @@
         android:focusable="false"
         android:padding="12dp" />
 
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/editTextRating"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:numStars="5"
-        android:stepSize="1.0" />
+        android:hint="Rating"
+        android:textColor="@android:color/black"
+        android:focusable="false"
+        android:padding="12dp" />
 
     <EditText
         android:id="@+id/editTextEvaluation"

@@ -1,6 +1,7 @@
 package com.example.project
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,8 @@ class PenilaianAdapter(
     private val penilaianList: List<Penilaian>,
     private val onItemClick: (Penilaian) -> Unit
 ) : RecyclerView.Adapter<PenilaianAdapter.PenilaianViewHolder>() {
+
+    // Hapus metode onCreate yang tidak diperlukan dalam Adapter
 
     class PenilaianViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val noTextView: TextView = view.findViewById(R.id.textNo)
@@ -31,7 +34,7 @@ class PenilaianAdapter(
         holder.lihatButton.setOnClickListener {
             // Mengirimkan data ke EvaluationActivity saat tombol "Lihat" diklik
             val context = holder.itemView.context
-            val intent = Intent(context,EvaluationActivity::class.java)
+            val intent = Intent(context, EvaluationActivity::class.java)
             intent.putExtra("NAMA_DOKTER", penilaian.nama)
             intent.putExtra("EVALUASI", "Evaluasi untuk ${penilaian.nama}")
             intent.putExtra("SARAN", "Saran perbaikan untuk ${penilaian.nama}")
@@ -43,4 +46,3 @@ class PenilaianAdapter(
         return penilaianList.size
     }
 }
-
