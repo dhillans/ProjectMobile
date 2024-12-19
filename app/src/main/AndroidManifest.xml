@@ -13,12 +13,7 @@
         android:theme="@style/Theme.Project"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
-            android:name=".InputPenilaian"
-=======
-            android:name=".LaporanPenilaian"
-
->>>>>>> 3ec7e639127304431fe46adb4a20cde294c51e49
+            android:name=".Menu"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -9,10 +9,9 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.data.Entry
 
-
 class LaporanKinerjaUser : AppCompatActivity() {
-    var lineChartIndividu: LineChart? = null
-    var lineChartDivisi: LineChart? = null
+    private var lineChartIndividu: LineChart? = null
+    private var lineChartDivisi: LineChart? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,42 +19,65 @@ class LaporanKinerjaUser : AppCompatActivity() {
 
         // Grafik Kinerja Individu
         lineChartIndividu = findViewById(R.id.lineChartIndividu)
-        setDataForChart(lineChartIndividu, getDummyData(), "#F8B400")
+        setDataForChart(
+            chart = lineChartIndividu,
+            dataValues = getDummyDataIndividu(),
+            color = "#F8B400" // Warna kuning
+        )
 
         // Grafik Kinerja Divisi
         lineChartDivisi = findViewById(R.id.lineChartDivisi)
-        setDataForChart(lineChartDivisi, getDummyData(), "#00B4D8")
+        setDataForChart(
+            chart = lineChartDivisi,
+            dataValues = getDummyDataDivisi(),
+            color = "#00B4D8" // Warna biru
+        )
     }
 
-    private fun setDataForChart(
-        chart: LineChart?,
-        dataValues: List<Entry>,
-        color: String
-    ) {
+    private fun setDataForChart(chart: LineChart?, dataValues: List<Entry>, color: String) {
         val lineDataSet = LineDataSet(dataValues, "Kinerja")
         lineDataSet.color = Color.parseColor(color)
         lineDataSet.setCircleColor(Color.parseColor(color))
-        lineDataSet.setDrawValues(false) // Disable values to remove numbers
+        lineDataSet.setDrawValues(false) // Sembunyikan angka pada grafik
+        lineDataSet.lineWidth = 2f
+        lineDataSet.circleRadius = 4f
 
         val lineData = LineData(lineDataSet)
         chart?.data = lineData
 
         // Styling Chart
-        chart?.xAxis?.position = XAxis.XAxisPosition.BOTTOM
-        chart?.description?.isEnabled = false
-        chart?.invalidate() // Refresh chart
+        chart?.xAxis?.apply {
+            position = XAxis.XAxisPosition.BOTTOM
+            granularity = 1f
+        }
+        chart?.axisLeft?.granularity = 1f
+        chart?.axisRight?.isEnabled = false // Nonaktifkan sumbu Y kanan
+        chart?.description?.isEnabled = false // Nonaktifkan deskripsi bawaan
+        chart?.invalidate() // Refresh grafik
     }
 
-    // Function to create dummy data for testing (You can replace this with actual data later)
-    private fun getDummyData(): List<Entry> {
-        val data = ArrayList<Entry>()
-        data.add(Entry(0f, 1f))
-        data.add(Entry(1f, 2f))
-        data.add(Entry(2f, 1.5f))
-        data.add(Entry(3f, 3f))
-        data.add(Entry(4f, 2.5f))
-        data.add(Entry(5f, 4f))
-        return data
+    // Data dummy untuk grafik individu
+    private fun getDummyDataIndividu(): List<Entry> {
+        return listOf(
+            Entry(2018f, 10f),
+            Entry(2019f, 15f),
+            Entry(2020f, 12f),
+            Entry(2021f, 18f),
+            Entry(2022f, 20f),
+            Entry(2023f, 25f)
+        )
     }
+
+    // Data dummy untuk grafik divisi
+    private fun getDummyDataDivisi(): List<Entry> {
+        return listOf(
+            Entry(2018f, 5f),
+            Entry(2019f, 10f),
+            Entry(2020f, 8f),
+            Entry(2021f, 15f),
+            Entry(2022f, 18f),
+            Entry(2023f, 22f)
+        )
+    }
+
 }
-

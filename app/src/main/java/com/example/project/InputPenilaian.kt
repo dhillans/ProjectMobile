@@ -26,7 +26,7 @@ class InputPenilaian : AppCompatActivity() {
         // Inisialisasi Views
         spinnerDivision = findViewById(R.id.spinnerDivision)
         editTextDate = findViewById(R.id.editTextDate)
-        ratingBar = findViewById(R.id.ratingBar)
+        ratingBar = findViewById(R.id.editTextRating)
         editTextEvaluation = findViewById(R.id.editTextEvaluation)
         buttonCreate = findViewById(R.id.buttonCreate)
 
