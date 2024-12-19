@@ -15,7 +15,7 @@ class Menu : AppCompatActivity() {
         // Tombol "Riwayat Penilaian & Laporan Evaluasi"
         findViewById<Button>(R.id.btn_evaluation_report).setOnClickListener {
             Toast.makeText(this, "Riwayat Penilaian Dipilih", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, EvaluationActivity::class.java)
+            val intent = Intent(this, PenilaianAdapter::class.java)
             startActivity(intent)
         }
 
