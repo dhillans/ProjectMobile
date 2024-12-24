@@ -8,6 +8,7 @@
     android:background="#E9F6FE"
     tools:context=".Menu">
 
+    <!-- Bagian atas (dokter dan info) -->
     <LinearLayout
         android:id="@+id/ll_top_section"
         android:layout_width="match_parent"
@@ -24,20 +25,16 @@
             android:id="@+id/tv_menu_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Menu"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:layout_gravity="center" />
 
-
-        <ImageView
-            android:id="@+id/img_doctor"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/dokter"
-            android:contentDescription="Doctor Photo" />
-
+            android:contentDescription="Profile doctor"></de.hdodenhof.circleimageview.CircleImageView>
 
         <TextView
             android:id="@+id/tv_doctor_name"
@@ -55,7 +52,6 @@
             android:text="Spesialis Kulit dan Kelamin"
             android:textColor="@color/white"
             android:textSize="14sp" />
-
 
         <TextView
             android:id="@+id/tv_schedule"
@@ -75,46 +71,63 @@
 
     </LinearLayout>
 
+    <!-- Tombol-tombol bagian bawah -->
 
     <Button
         android:id="@+id/btn_evaluation_report"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="RIWAYAT PENILAIAN dan LAPORAN EVALUASI"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="76dp"
         android:backgroundTint="@color/purple"
+        android:gravity="center"
+        android:text="RIWAYAT PENILAIAN dan LAPORAN EVALUASI"
         android:textColor="@color/white"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/ll_top_section"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="32dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_top_section" />
 
     <Button
         android:id="@+id/btn_performance_report"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="LAPORAN KINERJA"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="@color/purple"
+        android:gravity="center"
+        android:text="LAPORAN KINERJA"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/btn_evaluation_report"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="32dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_evaluation_report" />
+
+    <!-- Logo Rumah Sakit di bawah tombol laporan absensi -->
 
     <Button
         android:id="@+id/btn_absence_report"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="LAPORAN ABSENSI"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/purple"
+        android:gravity="center"
+        android:text="LAPORAN ABSENSI"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/btn_performance_report"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="32dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_performance_report" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/img_hospital_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="56dp"
+        android:contentDescription="Hospital Logo"
+        android:gravity="center"
+        android:src="@drawable/syafira"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_absence_report" />
 
-
+</androidx.constraintlayout.widget.ConstraintLayout>

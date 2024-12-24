@@ -1,7 +1,9 @@
 package com.example.project
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
@@ -32,6 +34,15 @@ class LaporanKinerjaUser : AppCompatActivity() {
             dataValues = getDummyDataDivisi(),
             color = "#00B4D8" // Warna biru
         )
+
+        // Tombol Kembali
+        val backArrow: ImageView = findViewById(R.id.backarrow)
+        backArrow.setOnClickListener {
+            // Navigasi ke halaman menu
+            val intent = Intent(this, Menu::class.java)
+            startActivity(intent)
+            finish() // Menutup activity ini setelah navigasi
+        }
     }
 
     private fun setDataForChart(chart: LineChart?, dataValues: List<Entry>, color: String) {
@@ -79,5 +90,4 @@ class LaporanKinerjaUser : AppCompatActivity() {
             Entry(2023f, 22f)
         )
     }
-
 }

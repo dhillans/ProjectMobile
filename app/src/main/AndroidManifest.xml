@@ -23,7 +23,7 @@
         </activity>
 
         <activity android:name=".PenilaianAdapter" android:exported="true" />
-        <activity android:name=".LaporanPenilaianAdmin" android:exported="true" />
+        <activity android:name=".LaporanKinerjaUser" android:exported="true" />
         <activity android:name=".LaporanAbsensi" android:exported="true" />
 
     </application>

@@ -1,6 +1,7 @@
 package com.example.project
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
@@ -12,7 +13,7 @@ class InputPenilaian : AppCompatActivity() {
 
     private lateinit var spinnerDivision: Spinner
     private lateinit var editTextDate: EditText
-    private lateinit var ratingBar: RatingBar
+    private lateinit var editTextRating: EditText
     private lateinit var editTextEvaluation: EditText
     private lateinit var buttonCreate: Button
 
@@ -26,7 +27,7 @@ class InputPenilaian : AppCompatActivity() {
         // Inisialisasi Views
         spinnerDivision = findViewById(R.id.spinnerDivision)
         editTextDate = findViewById(R.id.editTextDate)
-        ratingBar = findViewById(R.id.editTextRating)
+        editTextRating = findViewById(R.id.editTextRating)  // Adjusted to EditText as per your layout
         editTextEvaluation = findViewById(R.id.editTextEvaluation)
         buttonCreate = findViewById(R.id.buttonCreate)
 
@@ -53,14 +54,14 @@ class InputPenilaian : AppCompatActivity() {
             datePicker.show()
         }
 
-        // Simpan Data ke List Lokal
+        // Save Data and Pass to List Activity
         buttonCreate.setOnClickListener {
             val division = spinnerDivision.selectedItem.toString()
             val date = editTextDate.text.toString()
-            val rating = ratingBar.rating
+            val rating = editTextRating.text.toString().toFloatOrNull()
             val evaluation = editTextEvaluation.text.toString()
 
-            if (division.isNotEmpty() && date.isNotEmpty() && evaluation.isNotEmpty()) {
+            if (division.isNotEmpty() && date.isNotEmpty() && evaluation.isNotEmpty() && rating != null) {
                 val data = mapOf(
                     "division" to division,
                     "date" to date,
@@ -68,16 +69,24 @@ class InputPenilaian : AppCompatActivity() {
                     "evaluation" to evaluation
                 )
 
-                // Tambahkan data ke List
+                // Add to local list
                 assessmentList.add(data)
 
-                // Log data untuk verifikasi
-                Log.d("InputPenilaianActivity", "Data Disimpan: $data")
+                // Log data for verification
+                Log.d("InputPenilaianActivity", "Data Saved: $data")
+
+                // Pass data to EvaluationListActivity
+                val intent = Intent(this, PenilaianList::class.java)
+                intent.putExtra("division", division)
+                intent.putExtra("date", date)
+                intent.putExtra("rating", rating)
+                intent.putExtra("evaluation", evaluation)
+                startActivity(intent)
 
                 Toast.makeText(this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
                 clearFields()
             } else {
-                Toast.makeText(this, "Harap isi semua field", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Harap isi semua field dengan benar", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -85,7 +94,7 @@ class InputPenilaian : AppCompatActivity() {
     private fun clearFields() {
         spinnerDivision.setSelection(0)
         editTextDate.text.clear()
-        ratingBar.rating = 0f
+        editTextRating.text.clear()
         editTextEvaluation.text.clear()
     }
 }

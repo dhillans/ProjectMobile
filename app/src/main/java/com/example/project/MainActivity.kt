@@ -22,10 +22,10 @@ class MainActivity : AppCompatActivity() {
             Penilaian("4", "Fadhilla Khairunnisa"),
         )
 
-        val adapter = PenilaianAdapter(data) { item ->
-            Toast.makeText(this, "Lihat: ${item.nama}", Toast.LENGTH_SHORT).show()
-        }
-
-        recyclerView.adapter = adapter
+//        val adapter = PenilaianAdapter(data) { item ->
+//            Toast.makeText(this, "Lihat: ${item.nama}", Toast.LENGTH_SHORT).show()
+//        }
+//
+//        recyclerView.adapter = adapter
     }
 }

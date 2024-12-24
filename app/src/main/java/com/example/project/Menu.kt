@@ -22,7 +22,7 @@ class Menu : AppCompatActivity() {
         // Tombol "Laporan Kinerja"
         findViewById<Button>(R.id.btn_performance_report).setOnClickListener {
             Toast.makeText(this, "Laporan Kinerja Dipilih", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, LaporanPenilaianAdmin::class.java)
+            val intent = Intent(this, LaporanKinerjaUser::class.java)
             startActivity(intent)
         }
 

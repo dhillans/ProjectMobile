@@ -7,16 +7,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <!-- Profile Section -->
+        <!-- Profile Section with Full-Width Background -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="@color/purple"
-            android:padding="16dp">
+            android:padding="16dp"> <!-- Padding for the profile section -->
+
+            <!-- Tombol Back -->
+            <ImageView
+                android:id="@+id/backarrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back_arrow"
+                android:contentDescription="Back Icon"
+                android:layout_marginEnd="8dp"
+                android:onClick="onBackPressed" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="80dp"
@@ -48,46 +57,72 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Daily Report Section -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Laporan Harian"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            android:textStyle="bold" />
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chart_daily"
+        <!-- Reports Section with Padding -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
-
-        <!-- Monthly Report Section -->
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Laporan Bulanan"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:padding="16dp"> <!-- Padding for reports section -->
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chart_monthly"
-            android:layout_width="match_parent"
-            android:layout_height="200dp" />
+            <!-- Daily Report Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="16dp">
 
-        <!-- Yearly Report Section -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Laporan Tahunan"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Laporan Harian"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="8dp" />
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chart_yearly"
-            android:layout_width="match_parent"
-            android:layout_height="200dp" />
+                <!-- Enlarged Spinner for month selection -->
+                <Spinner
+                    android:id="@+id/spinner_month"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:entries="@array/months_array" />
+            </LinearLayout>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart_daily"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <!-- Monthly Report Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Laporan Bulanan"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart_monthly"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <!-- Yearly Report Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Laporan Tahunan"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart_yearly"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
