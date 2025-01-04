@@ -28,6 +28,8 @@
         android:popupBackground="@color/white" />
 
     <!-- Evaluation list -->
+
+    <!-- Create new evaluation button -->
     <ListView
         android:id="@+id/evaluationListView"
         android:layout_width="match_parent"
@@ -36,7 +38,6 @@
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp" />
 
-    <!-- Create new evaluation button -->
     <Button
         android:id="@+id/buttonCreate"
         android:layout_width="match_parent"

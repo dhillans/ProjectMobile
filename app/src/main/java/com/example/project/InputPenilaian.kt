@@ -91,8 +91,8 @@ class InputPenilaian : AppCompatActivity() {
                 // Log data for verification
                 Log.d("InputPenilaianActivity", "Data Saved: $data")
 
-                // Pass data to EvaluationListActivity
-                val intent = Intent(this, PenilaianList::class.java)
+                // Pass data to EvaluationActivity
+                val intent = Intent(this, EvaluationActivity::class.java)
                 intent.putExtra("division", division)
                 intent.putExtra("date", date)
                 intent.putExtra("ratingAbsensi", ratingAbsensi)

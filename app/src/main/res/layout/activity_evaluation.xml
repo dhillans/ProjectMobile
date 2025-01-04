@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pink"
     tools:context=".EvaluationActivity">
 
     <!-- Header Section -->
@@ -90,28 +91,55 @@
             android:layout_marginTop="8dp"
             android:text="Evaluasi:"
             android:textStyle="bold" />
-
         <TextView
-            android:id="@+id/evaluationText"
+            android:id="@+id/evaluation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Loading evaluasi..." />
+            android:text="Loading..." />
 
-        <!-- Suggestion Section -->
+        <!-- Absensi Rating -->
         <TextView
-            android:id="@+id/suggestionLabel"
+            android:id="@+id/ratingAbsensiLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Saran:"
-            android:textStyle="bold" />
+            android:text="Rating Absensi:"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
 
         <TextView
-            android:id="@+id/suggestionText"
+            android:id="@+id/ratingAbsensi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Loading saran..." />
+            android:text="Loading..." />
+
+        <!-- Professionalism Rating -->
+        <TextView
+            android:id="@+id/ratingProfessionalLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rating Sikap Profesional:"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/ratingProfessional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading..." />
+
+        <!-- Service Quality Rating -->
+        <TextView
+            android:id="@+id/ratingServiceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rating Kualitas Layanan:"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/ratingService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading..." />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
