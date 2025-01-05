@@ -13,7 +13,9 @@ class InputPenilaian : AppCompatActivity() {
 
     private lateinit var spinnerDivision: Spinner
     private lateinit var editTextDate: EditText
-    private lateinit var editTextRating: EditText
+    private lateinit var editTextRatingAbsensi: EditText
+    private lateinit var editTextRatingProfessional: EditText
+    private lateinit var editTextRatingService: EditText
     private lateinit var editTextEvaluation: EditText
     private lateinit var buttonCreate: Button
 
@@ -27,7 +29,9 @@ class InputPenilaian : AppCompatActivity() {
         // Inisialisasi Views
         spinnerDivision = findViewById(R.id.spinnerDivision)
         editTextDate = findViewById(R.id.editTextDate)
-        editTextRating = findViewById(R.id.editTextRating)  // Adjusted to EditText as per your layout
+        editTextRatingAbsensi = findViewById(R.id.editTextRatingAbsensi)
+        editTextRatingProfessional = findViewById(R.id.editTextRatingProfessional)
+        editTextRatingService = findViewById(R.id.editTextRatingService)
         editTextEvaluation = findViewById(R.id.editTextEvaluation)
         buttonCreate = findViewById(R.id.buttonCreate)
 
@@ -36,17 +40,23 @@ class InputPenilaian : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, divisions)
         spinnerDivision.adapter = adapter
 
-        // Setup Date Picker
+        // Setup Date Picker untuk input tanggal
         val calendar = Calendar.getInstance()
+
+        // Klik pada EditText untuk memunculkan dialog kalender
         editTextDate.setOnClickListener {
             val datePicker = DatePickerDialog(
                 this,
                 { _, year, month, dayOfMonth ->
+                    // Saat tanggal dipilih, format dan set di EditText
                     val selectedDate = Calendar.getInstance()
                     selectedDate.set(year, month, dayOfMonth)
+
+                    // Format tanggal menjadi "dd-MM-yyyy"
                     val format = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
                     editTextDate.setText(format.format(selectedDate.time))
                 },
+                // Tanggal default adalah tanggal sekarang
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH)
@@ -58,14 +68,20 @@ class InputPenilaian : AppCompatActivity() {
         buttonCreate.setOnClickListener {
             val division = spinnerDivision.selectedItem.toString()
             val date = editTextDate.text.toString()
-            val rating = editTextRating.text.toString().toFloatOrNull()
+            val ratingAbsensi = editTextRatingAbsensi.text.toString().toFloatOrNull()
+            val ratingProfessional = editTextRatingProfessional.text.toString().toFloatOrNull()
+            val ratingService = editTextRatingService.text.toString().toFloatOrNull()
             val evaluation = editTextEvaluation.text.toString()
 
-            if (division.isNotEmpty() && date.isNotEmpty() && evaluation.isNotEmpty() && rating != null) {
+            if (division.isNotEmpty() && date.isNotEmpty() && ratingAbsensi != null &&
+                ratingProfessional != null && ratingService != null && evaluation.isNotEmpty()) {
+
                 val data = mapOf(
                     "division" to division,
                     "date" to date,
-                    "rating" to rating,
+                    "ratingAbsensi" to ratingAbsensi,
+                    "ratingProfessional" to ratingProfessional,
+                    "ratingService" to ratingService,
                     "evaluation" to evaluation
                 )
 
@@ -75,11 +91,13 @@ class InputPenilaian : AppCompatActivity() {
                 // Log data for verification
                 Log.d("InputPenilaianActivity", "Data Saved: $data")
 
-                // Pass data to EvaluationListActivity
-                val intent = Intent(this, PenilaianList::class.java)
+                // Pass data to EvaluationActivity
+                val intent = Intent(this, EvaluationActivity::class.java)
                 intent.putExtra("division", division)
                 intent.putExtra("date", date)
-                intent.putExtra("rating", rating)
+                intent.putExtra("ratingAbsensi", ratingAbsensi)
+                intent.putExtra("ratingProfessional", ratingProfessional)
+                intent.putExtra("ratingService", ratingService)
                 intent.putExtra("evaluation", evaluation)
                 startActivity(intent)
 
@@ -94,7 +112,9 @@ class InputPenilaian : AppCompatActivity() {
     private fun clearFields() {
         spinnerDivision.setSelection(0)
         editTextDate.text.clear()
-        editTextRating.text.clear()
+        editTextRatingAbsensi.text.clear()
+        editTextRatingProfessional.text.clear()
+        editTextRatingService.text.clear()
         editTextEvaluation.text.clear()
     }
 }
