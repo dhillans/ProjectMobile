@@ -15,7 +15,7 @@ class EvaluationPenilaian : AppCompatActivity() {
 
         // Correct IDs based on the layout you choose for EvaluationPenilaian
         val namaTextView: TextView = findViewById(R.id.textNo)
-        val evaluasiTextView: TextView = findViewById(R.id.textNama)
+        val evaluasiTextView: TextView = findViewById(R.id.textTanggal)
         val saranTextView: TextView = findViewById(R.id.buttonLihat)
 
         // Set the data to the respective TextViews

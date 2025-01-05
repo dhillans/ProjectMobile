@@ -44,11 +44,11 @@ class PenilaianAdapter : AppCompatActivity() {
                     val itemLayout = layoutInflater.inflate(R.layout.item_penilaian, container, false)
 
                     val noTextView: TextView = itemLayout.findViewById(R.id.textNo)
-                    val tanggalTextView: TextView = itemLayout.findViewById(R.id.textTanggal)
+                    val textTanggal: TextView = itemLayout.findViewById(R.id.textTanggal)
                     val lihatButton: Button = itemLayout.findViewById(R.id.buttonLihat)
 
                     noTextView.text = (index + 1).toString()
-                    tanggalTextView.text = penilaian.tanggal
+                    textTanggal.text = penilaian.tanggal
 
                     lihatButton.setOnClickListener {
                         val intent = Intent(this@PenilaianAdapter, EvaluationPenilaian::class.java)
