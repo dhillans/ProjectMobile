@@ -41,7 +41,7 @@ class PenilaianAdapter : AppCompatActivity() {
 
                 // Populate data
                 for ((index, penilaian) in penilaianList.withIndex()) {
-                    val itemLayout = layoutInflater.inflate(R.layout.item_penilaian, container, false)
+                    val itemLayout = layoutInflater.inflate(R.layout.activity_penilaian, container, false)
 
                     val noTextView: TextView = itemLayout.findViewById(R.id.textNo)
                     val tanggalTextView: TextView = itemLayout.findViewById(R.id.textTanggal)
@@ -51,7 +51,7 @@ class PenilaianAdapter : AppCompatActivity() {
                     tanggalTextView.text = penilaian.tanggal
 
                     lihatButton.setOnClickListener {
-                        val intent = Intent(this@PenilaianAdapter, EvaluationPenilaian::class.java)
+                        val intent = Intent(this@PenilaianAdapter, PenilaianAdapter::class.java)
                         intent.putExtra("TANGGAL", penilaian.tanggal)
                         startActivity(intent)
                     }
